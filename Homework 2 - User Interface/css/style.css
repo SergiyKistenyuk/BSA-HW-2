@@ -56,6 +56,7 @@ table {
 a {
     text-decoration: none;
     color: rgb(26, 71, 115);
+    -webkit-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
 a:hover {
@@ -149,6 +150,7 @@ input[type="text"] {
     right: 40px;
     background: none;
     z-index: 3;
+    -webkit-transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
     transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
     cursor: pointer;
 }
@@ -195,6 +197,7 @@ input[type="submit"] {
     cursor: pointer;
     opacity: 0.4;
     cursor: pointer;
+    -webkit-transition: opacity .4s ease;
     transition: opacity .4s ease;
 }
 
@@ -207,10 +210,12 @@ input[type="submit"]:hover {
     position: fixed;
     font-size: 1.3em;
     z-index: 10;
+    background: rgba(165, 172, 181, 0.4);
+    height: 100vh;
 }
 #main-nav-bar nav {
-    padding: 40px;
-    margin-top: 240px;
+    padding: 30px;
+    margin-top: calc(50vh - 140px);
 }
 #main-nav-bar li {
     text-align: left;
@@ -229,6 +234,7 @@ input[type="submit"]:hover {
 /****************** Main Content ******************/
 main {
     padding-top: 88px;
+    min-width: 250px;
 }
 
 /* Content-block */
@@ -242,7 +248,7 @@ main {
 }
 #main-article-container {
     max-width: 1370px;
-    margin: 60px auto;
+    margin: 120px auto;
 }
 .main-article-block {
     float: left;
@@ -278,7 +284,7 @@ main {
 
 /****************** Footer ********************/
 footer {
-    padding: 80px 20px 20px 20px;
+    padding: 100px 20px 20px 20px;
     line-height: 1.5em;
 }
 footer a {
@@ -325,6 +331,8 @@ footer a {
         top: 35px;
         right: 50px;
         -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
     }
     #menu-toggle input {
@@ -347,28 +355,44 @@ footer a {
         background: #cdcdcd;
         border-radius: 3px;
         z-index: 1;
+        -webkit-transform-origin: 4px 0px;
         transform-origin: 4px 0px;
+        -webkit-transition: background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+        opacity 0.55s ease,
+        -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        transition: background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+        opacity 0.55s ease,
+        -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
         transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
         background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
         opacity 0.55s ease;
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+        background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+        opacity 0.55s ease,
+        -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     }
     #menu-toggle span:first-child {
+        -webkit-transform-origin: 0% 0%;
         transform-origin: 0% 0%;
     }
     #menu-toggle span:nth-last-child(2) {
+        -webkit-transform-origin: 0% 100%;
         transform-origin: 0% 100%;
     }
     #menu-toggle input:checked ~ span {
         opacity: 1;
+        -webkit-transform: rotate(45deg) translate(-2px, -1px);
         transform: rotate(45deg) translate(-2px, -1px);
         background: #232323;
     }
     #menu-toggle input:checked ~ span:nth-last-child(3) {
         opacity: 0;
+        -webkit-transform: rotate(0deg) scale(0.2, 0.2);
         transform: rotate(0deg) scale(0.2, 0.2);
     }
     #menu-toggle input:checked ~ span:nth-last-child(2) {
         opacity: 1;
+        -webkit-transform: rotate(-45deg) translate(0, -1px);
         transform: rotate(-45deg) translate(0, -1px);
     }
     #menu-burger {
@@ -382,15 +406,21 @@ footer a {
         background: #ededed;
         list-style-type: none;
         -webkit-font-smoothing: antialiased;
+        -webkit-transform-origin: 0% 0%;
         transform-origin: 0% 0%;
+        -webkit-transform: translate(-100%, 0);
         transform: translate(-100%, 0);
+        -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        transition: -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
         transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0), -webkit-transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
     }
     #menu-burger li {
         padding: 10px 0;
         font-size: 22px;
     }
     #menu-toggle input:checked ~ ul {
+        -webkit-transform: scale(1.0, 1.0);
         transform: scale(1.0, 1.0);
         opacity: 1;
         display: block;
@@ -448,6 +478,9 @@ footer a {
     }
     #main-article-container article{
         margin: 15px auto;
+    }
+    footer {
+        padding-top: 20px;
     }
 }
 
@@ -539,6 +572,9 @@ and (max-width: 1024px) {
     }
     #main-article-container article{
         margin: 20px auto;
+    }
+    footer {
+        padding-top: 40px;
     }
 }
 
