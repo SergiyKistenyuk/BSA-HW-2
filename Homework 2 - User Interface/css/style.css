@@ -28,7 +28,7 @@ footer, header, hgroup, menu, nav, section {
 /******************** Import **********************/
 @font-face{
     font-family: 'Roboto';
-    src: url('fonts/Roboto-Regular.ttf');
+    src: url('../fonts/Roboto-Regular.ttf');
 }
 
 /******************** General **********************/
